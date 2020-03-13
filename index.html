@@ -1,38 +1,122 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>EmperiunNeyer</title>
-  </head>
-  <body>
-    <br />
-    <h3><p>Начало</p></h3>
-    <br />
-    <img src="https://s00.yaplakal.com/pics/pics_original/8/0/1/7926108.jpg" width="320" height="200" alt="CARE" />     <img src="https://www.meme-arsenal.com/memes/1f004609f22dc0359e0dd462ecc18d93.jpg" width="320" height="200" alt="CARE" />
-    <h1><p>Этот сайт продает нейросети</p></h1>
-    <div><h2>Предзаказ</h2></div>
-    <br />
-    <img src="https://avatars.mds.yandex.net/get-pdb/1926871/d9e12c55-77df-401b-84c1-b64355709cf4/s1200" width="250" height="200" alt="CARE" />
-    <img src="https://i.pinimg.com/originals/91/10/3e/91103e6a4ff5829d03e2a5aaa7a9747e.png" width="320" height="200" alt="CARE" />
-    <div><h1>Этот сайт в стадии строительства  22.08</h1></div>      <img src="https://i.pinimg.com/originals/c0/b7/7f/c0b77faeb2cb3e67fd1b423c4535f6c3.jpgs" width="250" height="200" alt="CARE" />
-    <br />
-    <div><h1>Chat|Чат</h1></div>
-    <textarea rows="30" cols="50"></textarea>
-    <form action='contactus.php' method="post">
-   <p>Имя:</p>
-   <p><input type="text" name="name" value="Ваше имя" /></p>
-   <p>Комментарий: </p>
-   <p><textarea name="comments" rows="5" cols="20">Ваш комментарий</textarea></p>
-   <p>Вы:</p>
-   <p><input type="radio" name="areyou" value="male" /> Мужчина</p>
-   <p><input type="radio" name="areyou" value="female" /> Женщина</p>
-   <p><input type="radio" name="areyou" value="hermaphrodite" /> долбаеб</p>
-   <p><input type="radio" name="areyou" value="hermaphrodite" /> Ни то, ни другое</p>
-   <p><input type="submit" /></p>
-   <p><input type="reset" /></p>
-</form>
-    <div><h6>Неиросучка</h6></div>
-    <br />
-    <div><h6>Все права защещены законо</h6></div>
-  </body>
-</html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Подключение Bootstrap чтобы все выглядело красиво -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<title>Чат программа</title>
+	<!-- Свои стили -->
+	<style>
+		body {
+			background: #fcfcfc;
+		}
+	</style>
+</head>
+<body>
+	<!-- Создание меню на сайте (без функций) -->
+	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+		<h5 class="my-0 mr-md-auto">itProger</h5>
+		<nav class="my-2 my-md-0 mr-md-3">
+			<a class="p-2 text-dark" href="#">Главная</a>
+			<a class="p-2 text-dark" href="#">Про нас</a>
+			<a class="p-2 text-dark" href="#">Поддержка</a>
+			<a class="p-2 text-dark" href="#">Цены</a>
+		</nav>
+		<a class="btn btn-outline-primary" href="#">Регистрация</a>
+	</div>
+	<!-- Основная часть страницы -->
+	<div class="container">
+		<div class="py-5 text-center">
+			<h2>Чат программа</h2>
+			<p class="lead">Укажите ваше имя и начинайте переписку</p>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<!-- Форма для получения сообщений и имени -->
+				<h3>Форма сообщений</h3>
+				<form id="messForm">
+					<label for="name">Имя</label>
+					<input type="text" name="name" id="name" placeholder="Введите имя" class="form-control">
+					<br>
+					<label for="message">Сообщение</label>
+					<textarea name="message" id="message" class="form-control" placeholder="Введите сообщение"></textarea>
+					<br>
+					<input type="submit" value="Отправить" class="btn btn-danger">
+				</form>
+			</div>
+			<div class="col-6">
+				<h3>Сообщения</h3>
+				<!-- Вывод всех сообщений будет здесь -->
+				<div id="all_mess"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Подключаем jQuery, а также Socket.io -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		// У каждого пользователя будет случайный стиль для блока с сообщенями,
+		// поэтому в этом кусочке кода мы получаем случайные числа
+		var min = 1;
+		var max = 6;
+		var random = Math.floor(Math.random() * (max - min)) + min;
 
+		// Устаналиваем класс в переменную в зависимости от случайного числа
+		// Эти классы взяты из Bootstrap стилей
+		var alertClass;
+		switch (random) {
+			case 1:
+				alertClass = 'secondary';
+				break;
+			case 2:
+				alertClass = 'danger';
+				break;
+			case 3:
+				alertClass = 'success';
+				break;
+			case 4:
+				alertClass = 'warning';
+				break;
+			case 5:
+				alertClass = 'info';
+				break;
+			case 6:
+				alertClass = 'light';
+				break;
+		}
+
+		// Функция для работы с данными на сайте
+		$(function() {
+			// Включаем socket.io и отслеживаем все подключения
+			var socket = io.connect();
+			// Делаем переменные на:
+			var $form = $("#messForm"); // Форму сообщений
+			var $name = $("#name"); // Поле с именем
+			var $textarea = $("#message"); // Текстовое поле
+			var $all_messages = $("#all_mess"); // Блок с сообщениями
+
+			// Отслеживаем нажатие на кнопку в форме сообщений
+			$form.submit(function(event) {
+				// Предотвращаем классическое поведение формы
+				event.preventDefault();
+				// В сокет отсылаем новое событие 'send mess',
+				// в событие передаем различные параметры и данные
+				socket.emit('send mess', {mess: $textarea.val(), name: $name.val(), className: alertClass});
+				// Очищаем поле с сообщением
+				$textarea.val('');
+			});
+
+			// Здесь отслеживаем событие 'add mess',
+			// которое должно приходить из сокета в случае добавления нового сообщения
+			socket.on('add mess', function(data) {
+				// Встраиваем полученное сообщение в блок с сообщениями
+				// У блока с сообщением будет тот класс, который соответвует пользователю что его отправил
+				$all_messages.append("<div class='alert alert-" + data.className + "'><b>" + data.name + "</b>: " + data.mess + "</div>");
+			});
+
+		});
+	</script>
+</body>
+</html>
