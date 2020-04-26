@@ -1,4 +1,4 @@
-alert("Hello World");
+///alert("Hello World");
 function fi(){
 	alert("Вы нажали на кнопку");
 }
