@@ -1,422 +1,80 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>Два.ч — Свободное общение</title>
-	<link rel="stylesheet" type="text/css" href="/newtest/resources/css/reset.css?1">
-	<link rel="stylesheet" type="text/css" href="/makaba/templates/css/makaba.css">
-	<link rel="stylesheet" type="text/css" href="/makaba/templates/css/indexboards.css">
-	<link href="/makaba/templates/css/topthreads.css" type="text/css" rel="stylesheet">
-	<link href="/makaba/templates/css/font-awesome.min.css" title="makaba" type="text/css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/css/jqcloud.css">
-	<script type="text/javascript" src="/makaba/templates/js/jquery-3.1.0.min.js"></script>
-	<script src="/js/jqcloud-1.0.3.min.js" type="text/javascript"></script>
-	<script type="text/javascript" src="/newtest/resources/js/hmain.js"></script>
-	<script>tmp_id = null; tmp_board = null;tmp_likes=null;tmp_enable_oekaki = null;tmp_enable_subject = null;tmp_max_files_size = null;tmp_twochannel = 0;	tmp_max_comment = null;	tmp_adv_img = null;tmp_adv_lnk = null;tmp_styles=[];
-	window.Store={memory:{},type:null,init:function(){;if(this.html5_available()){this.type='html5';this.html5_load()}else if(this.cookie_available()){this.type='cookie';this.cookie_load()}},get:function(path,default_value){var path_array=this.parse_path(path);if(!path_array)return default_value;var pointer=this.memory;var len=path_array.length;for(var i=0;i<len-1;i++){var element=path_array[i];if(!pointer.hasOwnProperty(element))return default_value;pointer=pointer[element]} var ret=pointer[path_array[i]];if(typeof(ret)=='undefined')return default_value;return ret},set:function(path,value){if(typeof(value)=='undefined')return!1;if(this.type)this[this.type+'_load']();var path_array=this.parse_path(path);if(!path_array)return!1;var pointer=this.memory;var len=path_array.length;for(var i=0;i<len-1;i++){var element=path_array[i];if(!pointer.hasOwnProperty(element))pointer[element]={};pointer=pointer[element];if(typeof(pointer)!='object')return!1} pointer[path_array[i]]=value;if(this.type)this[this.type+'_save']();return!0},del:function(path){var path_array=this.parse_path(path);if(!path_array)return!1;if(this.type)this[this.type+'_load']();var pointer=this.memory;var len=path_array.length;var element,i;for(i=0;i<len-1;i++){element=path_array[i];if(!pointer.hasOwnProperty(element))return!1;pointer=pointer[element]} if(pointer.hasOwnProperty(path_array[i]))delete(pointer[path_array[i]]);this.cleanup(path_array);if(this.type)this[this.type+'_save']();return!0},cleanup:function(path_array){var pointer=this.memory;var objects=[this.memory];var len=path_array.length;var i;for(i=0;i<len-2;i++){var element=path_array[i];pointer=pointer[element];objects.push(pointer)} for(i=len-2;i>=0;i--){var object=objects[i];var key=path_array[i];var is_empty=!0;$.each(object[key],function(){is_empty=!1;return!1});if(!is_empty)return!0;delete(object[key])}},reload:function(){if(this.type)this[this.type+'_load']()},'export':function(){return JSON.stringify(this.memory)},'import':function(data){try{this.memory=JSON.parse(data);if(this.type)this[this.type+'_save']();return!0}catch(e){return!1}},parse_path:function(path){var test=path.match(/[a-zA-Z0-9_\-\.]+/);if(test==null)return!1;if(!test.hasOwnProperty('0'))return!1;if(test[0]!=path)return!1;return path.split('.')},html5_available:function(){if(!window.Storage)return!1;if(!window.localStorage)return!1;try{localStorage.__storage_test='wU1vJ0p3prU1';if(localStorage.__storage_test!='wU1vJ0p3prU1')return!1;localStorage.removeItem('__storage_test');return!0}catch(e){return!1}},html5_load:function(){if(!localStorage.store)return;this.memory=JSON.parse(localStorage.store)},html5_save:function(){localStorage.store=JSON.stringify(this.memory)},cookie_available:function(){try{setCookie('__storage_test','wU1vJ0p3prU1');if(getCookie('__storage_test')!='wU1vJ0p3prU1')return!1;delCookie('__storage_test');return!0}catch(e){return!1}},cookie_load:function(){var str=getCookie('store');if(!str)return;this.memory=JSON.parse(str)},cookie_save:function(){var str=JSON.stringify(this.memory);setCookie('store',str,365*5)}}
-			Store.init();
-			const CFG = {};
-	</script>
-	<script type="text/javascript" src="/makaba/templates/js/sharkey.js"></script>
-	<script src="/makaba/templates/js/boards.js?11"></script>
-	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-	  <script>
-	  $( function() {
-		$( "#tabbed" ).tabs({ 
-			active: Store.get('other.index.active',0),
-			activate: function(event, ui){
-				console.log(ui.newTab.index());
-				Store.set('other.index.active', ui.newTab.index());
-			},
-		});
-	  } );
-	  (function() {
-			    window.st = localStorage.getItem('store') || '{}';
-				st = JSON.parse(st);
-			    var nightmode = st.hasOwnProperty('styling') ? st.styling.nightmode : false;
-				if ( nightmode ) { 
-					document.documentElement.dataset.theme = 'nightmode'; 
-				}
-			})();
-	  </script>
-	  <script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	  ga('create', 'UA-53637455-1', 'auto');
-	  ga('send', 'pageview');
-	</script>
-	
-<!--[if lt IE 9]>
-	<script type="text/javascript" src="/makaba/templates/js/html5shiv.js"></script>
-<![endif]-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Подключение Bootstrap чтобы все выглядело красиво -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<title>Trubadur</title>
+	<!-- Свои стили -->
+	<style>
+		body {
+			background: #000;
+	<!fcfcfc
+		}
+	</style>
+	<script src="js.js"></script>
 </head>
-	<body>
-		<div id="settings-window" style="display:none;" class="qr qr-settings">
-			<div id="settings-window-header" class="qr-header">
-				<span id="settings-title">Настройки</span>
-			</div>
-			<div id="settings-body">
-			</div>
-			<div id="settings-footer" class="setting-buttons qr-footer">
-				<hr>
-				<input type="button" id="settings-btn-save" value="Сохранить">
-				<input type="button" id="settings-btn-export" value="Экспорт">
-				<input type="button" id="settings-btn-import" value="Импорт">
-				<input type="button" id="settings-btn-close" value="Отмена">
-			</div>
+<body>
+	</div>
+	<!-- Основная часть страницы -->
+	<div class="container">
+		<div class="py-5 text-center">
+			<h1>LinkId</h1>
 		</div>
-		
-		<div id="setting-editor-window" style="display:none;" class="qr qr-settings">
-			<div id="setting-editor-window-header" class="qr-header">
-				<span id="setting-editor-title"></span>
-			</div>
-			<div id="setting-editor-body">
-			</div>
-			<div id="setting-editor-footer" class="setting-buttons qr-footer">
-				<hr>
-				<input type="button" id="setting-editor-btn-save" value="Сохранить">
-				<input type="button" id="setting-editor-btn-export" value="Экспорт">
-				<input type="button" id="setting-editor-btn-import" value="Импорт">
-				<input type="button" id="setting-editor-btn-close" value="Отмена">
-			</div>
+		<div>
+			<p><font size="9" color="#fff" face="trebuchet ms">Hello</font></p>
+			<p><font size="8" color="#fff" face="arial black">Сайт🙂😎</font></p>
+			<h5>Сайт в Beta 7.7</h5>
 		</div>
-		
-		<div class="wraper mainpage">
-			<header class="header">
-				<!--<a class="mainlogo" href="/">Два.ч</a>-->
-				<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-						 viewBox="0 0 509.9 188.5" style="enable-background:new 0 0 509.9 188.5;width: 300px;" xml:space="preserve">
-					<style type="text/css">
-						.st0{fill:var(--theme_logo_text);}
-						.st1{fill:url(#SVGID_1_);}
-						.st2{display:none;}
-					</style>
-					<g id="Слой_1_1_">
-						<path class="st0" d="M148.4,115.5h10c7.9-18.4,11.7-36.5,11.7-72.8V30.3h77.3v85.2h10.2l-5.6,43.3h-20.1v-22.2h-59.3l-4.1,22.2
-							h-20.1L148.4,115.5L148.4,115.5z M192.5,51.4v10.8c0,22.5-3.5,38.6-9.6,53.3h41V51.4H192.5z"/>
-						<path class="st0" d="M350.9,113c0-17.8,13.5-26,32.8-26c8.2,0,14.1,1.4,19.9,3.3v-1.4c0-9.6-5.9-14.9-17.5-14.9
-							c-8.8,0-15,1.7-22.5,4.4l-5.8-17.6c9-3.9,17.8-6.5,31.6-6.5c12.6,0,21.7,3.3,27.5,9.1c6.1,6.1,8.8,15,8.8,26v47.2h-22.3v-8.8
-							c-5.6,6.2-13.4,10.3-24.6,10.3C363.5,138.2,350.9,129.4,350.9,113z M403.9,107.9v-4.1c-3.9-1.8-9.1-3-14.7-3
-							c-9.9,0-15.9,3.9-15.9,11.5c0,6.2,5.2,9.9,12.6,9.9C396.6,122.2,403.9,116.3,403.9,107.9z"/>
-						<path class="st0" d="M459.6,80.8c0,8.5,3.6,13.4,11.2,13.4c6.2,0,11.2-1.7,15.8-3.9V55.2h23.2v81.4h-23.2v-28.4
-							c-5.6,2.7-13.8,5.3-22,5.3c-16.3,0-28.4-9.3-28.4-26.3v-32h23.4V80.8z"/>
-						<path class="st0" d="M334.5,98c-2.1-1.8-4.5-3.2-7.1-4.1c1.9-1,3.7-2.3,5.2-3.9c3.6-3.7,5.9-8.7,5.9-14.3c0-9.3-6.9-17.8-15.9-20
-							c-3.4-0.8-7.1-0.5-10.6-0.5h-42.1v81.4h50.3c10.3,0,19.5-7.5,21.6-17.6c0.3-1.5,0.5-3,0.4-4.5C342.1,108.2,339.3,102.2,334.5,98z
-							 M292.6,72h15.6c4.4,0,8.1,3.6,8.1,8.1c0,4.4-3.6,8.1-8.1,8.1h-15.6V72z M311.6,121.1h-18.9c0,0,0,0-0.1,0V105c0,0,0,0,0.1,0h18.9
-							c4.4,0,8.1,3.6,8.1,8.1C319.7,117.5,316,121.1,311.6,121.1z"/>
-							<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="48.9124" y1="235.6292" x2="72.3371" y2="23.9901" gradientTransform="matrix(1 0 0 -1 0 196.6667)">
-							<stop  offset="0" style="stop-color:#FFA90A"/>
-							<stop  offset="0.2518" style="stop-color:#FFA00D"/>
-							<stop  offset="0.6689" style="stop-color:#FE8616"/>
-							<stop  offset="0.9944" style="stop-color:#FE6E1F"/>
-						</linearGradient>
-						<polygon class="st1" points="123.8,61.8 75.7,61.8 107.3,0.6 45.3,0.6 0.2,97.3 49.8,97.3 25.9,188.5 	"/>
-					</g>
-				</svg>
-				<span class="welcomefriend">Оставайся дома. Снова.</span>
-			</header>
-			<section class="mcontent">
-				<article class="postscontainer hdescription">
-					Два.ч - это система форумов, где можно общаться быстро и свободно, где любая точка зрения имеет право на жизнь. Здесь нет регистрации и подписываться не нужно, хотя это не избавляет вас от необходимости соблюдать правила. Все форумы (кроме <a href="/b/">/Б/</a>реда), а их список находится снизу, имеют собственную чётко ограниченную тематику. Словом, всё, что не запрещено правилами отдельно взятого форума и относится к его тематике, на этом форуме разрешено. <br><a style="float:right;" href="/m.html">Скачать мобильные приложения</a></a>
-				</article>
-				<article class="postscontainer hdescription">
-					<img src="/makaba/templates/img/sidi_doma_.png" style="width: 100%;height: auto;">
-				</article>
-				<article class="postscontainer hdescription hboardlist">
-					<div class="column">
-						<ul>
-							<li class="boardsubj">Тематика</li>
-							<li><a href="/au/">Автомобили</a></li>
-							<li><a href="/bi/">Велосипеды</a></li>
-							<li><a href="/biz/">Бизнес</a> </li>
-							<li><a href="/c/">Комиксы</a></li>
-							<li><a href="/cc/">Криптовалюты</a></li>
-							<li><a href="/em/">Другие страны</a> </li>
-							<li><a href="/fa/">Мода и стиль</a></li>
-							<li><a href="/fiz/">Физкультура</a></li>
-							<li><a href="/fl/">Ин.языки</a></li>
-							<li><a href="/ftb/">Футбол</a></li>
-							<li><a href="/hi/">История</a></li>
-							<li><a href="/me/">Медицина</a></li>
-							<li><a title="магия" href="/mg/">Магия</a></li>
-							<li><a href="/mlp/">Пони</a></li>
-							<li><a href="/mo/">Мотоциклы</a></li>
-							<li><a href="/mov/">Фильмы</a></li>
-							<li><a href="/mu/">Музыка</a></li>
-							<li><a href="/ne/">Животные</a></li>
-							<li><a href="/psy/">Психология</a></li>
-							<li><a href="/re/">Религия</a></li>
-							<li><a href="/sci/">Наука</a></li>
-							<li><a href="/sf/">Научная фантастика</a></li>
-							
-						</ul>
-					</div>
-					<div class="column">
-						<ul>
-							<li><a href="/sn/">Паранормальное</a></li>
-							<li><a href="/sp/">Спорт</a></li>
-							<li><a href="/spc/">Космос</a></li>
-							<li><a href="/tv/">Сериалы</a></li>
-							<li><a href="/un/">Образование</a></li>
-							<li><a href="/w/">Оружие</a></li>
-							<li><a href="/wh/">Warhammer</a></li>
-							<li><a href="/wm/">Военная техника</a></li>
-							<li><a href="/wp/">Обои и хайрез</a></li>
-							<li><a href="/zog/">Теории заговора</a></li>
-							<br>
-							<li class="boardsubj">Творчество</li>
-							<li><a href="/de/">Дизайн</a></li>
-							<li><a href="/di/">Столовая</a></li>
-							<li><a href="/diy/">Хобби</a></li>
-							<li><a href="/mus/">Музыканты</a></li>
-							<li><a href="/pa/">Живопись</a></li>
-							<li><a href="/p/">Фотография</a></li>
-							<li><a href="/wrk/">Работа</a></li>
-							
-							<br>
-							<li class="boardsubj">Политика и новости</li>
-							<li><a href="/po/">Политика</a></li>
-							<li><a href="/news/">Новости</a></li>
-							<li><a href="/int/">International</a></li>
-							<li><a href="/hry/"><font color="red"><b>Х Р Ю</b></font></a></li>
-							<br>
-						</ul>
-					</div>
-					<div class="column">
-						<ul>
-							
-							<li class="boardsubj">Техника и софт</li>
-							<li><a href="/gd/">Gamedev</a></li>
-							<li><a href="/hw/">Комп. железо</a></li>
-							<li><a href="/mobi/">Моб. устройства</a></li>
-							<li><a href="/pr/">Программирование</a></li>
-							<li><a href="/ra/">Радиотехника</a></li>
-							<li><a href="/s/">Программы</a></li>
-							<li><a href="/t/">Техника</a></li>
-							
-							<br>
-							<li class="boardsubj">Игры</li>
-							<li><a href="/bg/">Настольные игры</a></li>
-							<li><a href="/cg/">Консоли</a></li>
-							<li><a href="/ruvn/"><font color="red"><b>Российские виз.новеллы</b></font></a></li>
-							<li><a href="/tes/">The Elder Scrolls</a></li>
-							<li><a href="/v/">Video Games</a></li>
-							<li><a href="/vg/">Video Games General</a></li>
-							<li><a href="/wr/">Текстовые РПГ</a></li>
-						</ul>
-					</div>
-					<div class="column">
-						<ul>
-							
-							
-							<li class="boardsubj">Японская культура</li>
-							<li><a href="/a/">Аниме</a></li>
-							<li><a href="/fd/">Фэндом</a></li>
-							<li><a href="/ja/">Японская культура</a></li>
-							<li><a href="/ma/">Манга</a></li>
-							<li><a href="/vn/">Визуальные новеллы</a></li>
-							<br>
-							<li class="boardsubj">Разное  <span style="font-size:10px; color:red;"> (18+)</span></li>
-							<li><a href="/d/">Дискуссии о Два.ч</a></li>
-							<li><a href="/b/">Бред</a></li>
-							<li><a href="/soc/">Общение</a></li>
-							<li><a href="/media/">Анимация</a></li>
-							<li><a href="/r/">Реквесты</a></li>
-							<li><a href="/api/">API</a></li>
-							<li><a href="/rf/">Убежище</a></li>
-							<li><a href="/o/"><font color="red"><b>Рисовач</b></font></a></li>
-							<br>
-						</ul>
-					</div>
-					<div class="column">
-						<ul>
-							
-							<li class="boardsubj">Взрослым <span style="font-size:10px; color:red;"> (18+)</span></li>
-							<li><a href="/fg/">Трапы</a></li>
-							<li><a href="/fur/">Фурри</a></li>
-							<li><a href="/gg/">Красивые девушки</a></li>
-							<li><a href="/ga/">Геи</a></li>
-							<li><a href="/hc/">Hardcore</a></li>
-							<li><a href="/e/">Extreme pron</a></li>
-							<li><a href="/fet/">Фетиш</a></li>
-							<li><a href="/sex/">Секс и отношения</a></li>
-							<li><a href="/fag/">Фагготрия</a></li>
-							
-							<li class="otherboards"><font color="red"><a title="уровня b" href="/catalog/">Статьи</a></font></li>
-							<li class="otherboards"><a href="/userboards.html">Прочие доски</a></li>
-							<li class="otherboards"><font color="red"><a href="//tv.2ch.hk">ТИВАЧ</a></font></li>
-						</ul>
-					</div>
-				</article>
-				<article class="postscontainer  hdescription hnews" >
-					<header class="news-title">Новости
-						<span class="pager">
-							<a href="#" onclick="cloudBoard.getnews(this);return false;" data-page="down">←</a>
-							 <span id="cur_page">0</span> 
-							<a href="#" onclick="cloudBoard.getnews(this);return false;" data-page="up">→</a>
-						</span>
-					</header>
-					<div id="news"></div>
-				</article>
-				<article class="postscontainer  hdescription-stats">На данный момент открыто <strong>160</strong> досок. Общая скорость постинга на имиджборде <strong>10,360</strong>, за все время существования было оставлено <strong>440,004,345</strong> постов.
-</article>
+		<p>tgthtth</p>
+		<!--p><font size="8" color="#fa8e47" face="trebuchet ms">"Ищем разработчика android"</font></p>
+		<p><font size="8" color="#36D986" face="trebuchet ms">"Отправлять вакансии сюда https://t.me/Gomosik"</font></>
+
+		<!--размер цвект шрифт -->
+
+		<div class="row">
+			<div class="col-6">
+				<!-- Форма для получения сообщений и имени -->
+				<h3>Форма сообщений</h3><p>Не работает</p>
+				<form id="messForm">
+					<input type="text" name="name" id="name" placeholder=" " class="form-control">
+					<br>
+			    <br>
+					<input type="submit" value="Mess" class="btn btn-danger">
+				</form>
+				<!--button onclick="fi()">привет</button-->
+				<input type="file" onchange="showFile(this)">
+
+				<p><font size="10" color="#4b0082" face="fantasy">Идет разработка андроид приложения</font></p>
+				<p><font size="9" color="#6d3f5b" face="fantasy">Идет разработка андроид приложения</font></p>
 				
-				<div class="clear" style="height:10px;"></div>
-				<section id="tabbed" class="tabs-wrapper">
-					<ul class="tabs-tabs">
-						<li><a href="#boards-tab">Доски</a></li>
-						<li><a href="#tracker-tab">Трекер</a></li>
-					</ul>
-					
-					<section class="data board-data" id="boards-tab">
-						<div class="cloudheader">
-							<a href="#" class="cloudoption" title="Список" onclick="cloudBoard.display('list',cloudBoard.order); return false;"><i class="fa fa-list"></i></a> -
-							<a href="#" class="cloudoption" title="Облачко :3" onclick="cloudBoard.display('cloud',cloudBoard.order);  return false;"><i class="fa fa-cloud"></i></a>
-							|
-							<a href="#" class="cloudoption" title="Алфавитный порядок" onclick="cloudBoard.display(cloudBoard.displaytype,'az'); return false;"><i class="fa fa-sort-alpha-asc"></i></a> -
-							<a href="#" class="cloudoption" title="По скорости постинга" onclick="cloudBoard.display(cloudBoard.displaytype,'unique_posters'); return false;"><i class="fa fa-line-chart"></i></a>
-							 
-							<input type="text" placeholder="Фильтр" id="filter" size="8">
-							<span class="passcode-banner">
-								<a href="/boardrequest.html">Предложить доску</a>
-							</span>
-						</div>
-						 <div class="table board-list-table">
-							<div class="thead board-list-head">
-								 <div class="tr">
-									  <div class="th board-title">Доска</div>
-									  <div class="th board-name">Название</div>
-									  <div class="th board-speed">П/ч</div>
-									  <div class="th board-ip" title="Количество уникальных IP постеров за 24 часа. Это не просмотры, ридонли IP не учитываются.">Уник IP<a href="" style="color:black;">[ ? ]</a></div>
-										<div class="th board-desc">Описание</div>
-									  <div class="th board-posts">Постов</div>
-								 </div>
-							</div>
-				  
-							<div class="tbody cloudboard"></div>
-						</div>
-						<script>
-							$(document).ready(function() {
-								
-								cloudBoard.getdata();
-								cloudBoard.getnews();
-								
-								var filterStyle = $('#cloudstyle');
-								var htmlstyle;
-								$('#filter').on('input', function() {cloudBoard.findb(this.value)} );
-							});
-						</script>
-					</section>
-					<section id="tracker-tab" class="tracker-tab">
-						<script type="text/javascript" src="/makaba/templates/js/tracker.js?87"></script>
-						<link href="/makaba/templates/css/tracker.css?12" type="text/css" rel="stylesheet">
-						<div class="box-data">
-							<div class="cloudheader">
-								<input placeholder="доска" id="board" size="8" type="text"> <input type="button" value="Добавить" id="add-board">
-								Доски: 
-								[ 
-									<span class="boards-list">
-									</span> 
-								]
-								[ <a href="#" class="update">Обновить (<span class="counter"></span>)</a> ]
-								<hr class="hr">
-								<input type="button" value="Full" id="toggle-mode">
-								<select id="toggle-filter">
-									<option value="timestamp">Времени создания</option>
-									<option value="lasthit">Бампам</option>
-									<option value="posts_count">Кол-ву постов</option>
-								</select>
-								Выводить <input placeholder="100" id="limit" size="3" type="text" value="50"> 
-								<label for="toggle-sound"><span title="nsfw">Звук (todo) </span><input type="checkbox" value="" id="toggle-sound"></label> 
-								<label for="toggle-nsfw"><span title="nsfw">NSFW </span><input type="checkbox" id="toggle-nsfw" name="nsfw"></label>
-							</div class="cloudheader">
-							<div id="data" class="data">
-								<script>Tracker.init()</script>
-							</div>
-						</div>
-					</section>			
-			</section>
-			
-			<footer>
-				<div class="foot">
-					<a href="/rules.html">правила</a> / <a href="/contacts.html">контакты</a> / <a href="/donate.html">пожертвования</a> / <a href="/d/">идеи и предложения</a>/ <a href="https://twitter.com/#!/abunyasha/">twitter</a> / <a href="/index_frame.html">версия с фреймом</a> / <a href="/mail">почта</a> / <!--LiveInternet counter--><script type="text/javascript">document.write("<a href='//www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t26.2;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) +";h"+escape(document.title.substring(0,80)) +  ";" + Math.random() + "' border=0 width=88 height=15 alt='' title='LiveInternet: показано число посетителей за сегодня'><\/a>")</script><!--/LiveInternet-->
-				</div>
-			</footer>
-		</div>
-		<div  class="bb desktop">
-			<div class="bb__header" id="bb-header">
-				Избранное / Топ тредов 
-				<svg xmlns="http://www.w3.org/2000/svg" class="bb__update icon"><use xlink:href="#icon__update"></use></svg>
-			</div>
-			<div class="bb__panels">
-				<div class="bb__panel" id="favorites-body">
-					<div id="favorites-table">
-					</div>
-					<div class="bb__footer">
-						<hr>
-						<div>
-							Автоматически следить за:
-							<label><input checked="checked" id="qr-fav-autowatchmyposts" type="checkbox"> своими постами </label>
-							<label><input id="qr-fav-autowatchmythreads" type="checkbox"> своим тредом</label>
-						</div>
-					</div>
-				</div>
-				<div class="bb__panel" id="boardstats-body" style="display: none;">
-					<div  id="boardstats-table">
-					</div>
-				</div>
-				<ul class="bb__tabs">
-					<li class="bb__tab bb__tab_active" data-tab="favorites">Избранное</li>
-					<li class="bb__tab" data-tab="boardstats">Топ тредов</li>
-				</ul>
-			</div>
-	    </div>
-	    <script>
-	  //   	(function() {
-			//     var active = true;//ТУТ ВКЛ ВЫКЛ
-			//     var activeMob = true;//ТУТ ВКЛ ВЫКЛ БАННЕРА МОБИЛЬНОГО
-			//     var desktop = 1; //1 - desktop, 0 - mobile
-			//     window.innerWidth <= 480 ? desktop = 0 : desktop = 1;
-			// 	if(!active && desktop) return;
-			//     if(!activeMob && !desktop) return; 
-			//     var content = '';
-			// 	//delCookie('plashque'); //очищаем куку, чтобы все гарантировано видели ИНФОРМАЦИЮ
+				<img src="https://ci3.googleusercontent.com/proxy/sDiMDLB1dwQ00hZ1yX7lCl4nMuzqED_CHWhkI5NgKqD3oNprRWRQnqaH3221KxGZQ5m31aPXjNQ_5JUMPwf8EvI7cU9E1NkNMA=s0-d-e1-ft" onclick="Po()" alt="" width="37%" align="center" border="3" hspace="10%" vspace="10%" />
+				<img src="https://i.pinimg.com/564x/e5/b7/3a/e5b73a3709d3d988c8909e9da26170de.jpg" alt="" width="70%" align="center" border="3" hspace="10%" vspace="10%" />
 				
-			// 	$el = $('body');
-			// 	var show_plashque = getCookie('plashque');
-			//     if(desktop) {
-			//     	//var p_text = 'Анон, играй в викторину от ВК - Клевер и получай деньги за свои знания. Призовой фонд — 50 тысяч рублей, и он все время растёт!<br> Качать на <a href=https://vk.cc/7PprZ8>iOS</a> и <a href=https://vk.cc/7PfUYq>Android</a> ';
-			//     	//content = '<a href="#">#купикота</a> Анон, не пропусти возмозность завести собственного Nyan Cat на блокчейне! Официальный тред – <a href="https://2ch.hk/cc/res/443150.html">https://2ch.hk/cc/res/443150.html</a>';
-			//     	content = 'Подписывайся на официальный канал Двача в Телеграме и узнавай обо всех новостях и мемах первым! <a href=https://tlg.wtf/dvachannel>https://tlg.wtf/dvachannel</a>';
-			//     	//var p_text = 'Розыгрыш пасскодов и почты в нашем паблике Двача в ВК.<br>Подписывайся, репостни запись и выигрывай -  <a href="https://vk.com/ru2ch?w=wall-22751485_1687814">vk.com/ru2ch/</a>';
-			//     } else {
-			//         //АРХИВ И ГЛАВНАЯ
-			//         if(window.location.pathname == "/" || location.pathname.split(/\//)[2] == 'arch') {
-			//             var banner = "/banners/S4BcqS4adse3B2Cb.jpg";
-			//             var link = "https://teleg.run/dvachannel";
-			//         } else {
-			//             var banner = window.thread.adv_img;//@todo check for empty
-			//             var link = window.thread.adv_lnk;
-			//         }
-			//         content = '<a href="' + link + '"><img class="mob-banner" src="' + banner + '"></a>';
-			//     }
-			//     var plashque = '<div id="' + (desktop ? 'plashque' : 'mobile-plashque') + '">' +	content + '<span id="plashque-close">[X]</span></div>';
-			// 	//@todo media query вместо 2х id
-			//     if(show_plashque != 1) {
-			// 			$el.append(plashque);
-			// 	}
-			// 	$("#plashque-close").click(function(){
-			// 		setCookie("plashque", 1, 1);
-			// 		if(desktop) {
-			//             $('#plashque').slideUp();
-			//         } else {
-			//             $('#mobile-plashque').slideUp();
-			//         }
-			// 		return false;
-			//     });  
-			// })();
-	    </script>
-	</body>
+
+				3<!--img src="https://i.pinimg.com/564x/01/ff/ec/01ffec0108753fa6f1c9550820dad5fd.jpg" alt="" width="80%" align="center" border="3" hspace="10%" vspace="10%" />
+				2<img src="https://i.pinimg.com/564x/05/12/dd/0512dd061695a81b4da7515e0fbfd444.jpg" alt="" width="60%" align="center" border="3" hspace="10%" vspace="10%" />
+				1<img src="https://i.pinimg.com/564x/60/61/91/60619132ef665d86c204c60f8f0cbd9d.jpg" alt="" width="80%" align="center" border="3" hspace="10%" vspace="10%" />
+				<img src="https://i.pinimg.com/564x/e5/b7/3a/e5b73a3709d3d988c8909e9da26170de.jpg" alt="" width="70%" align="center" border="3" hspace="10%" vspace="10%" />
+				<img src="https://i.pinimg.com/564x/af/77/33/af77333f37b9405810108e4f9090979e.jpg" alt="" width="70%" align="center" border="3" hspace="10%" vspace="10%"--!/>
+				<img src="https://i.pinimg.com/564x/be/24/92/be2492cb99de1cfcc79b547b10c6ab83.jpg" alt="" width="70%" align="center" border="3" hspace="10%" vspace="10%" />
+				<img src="https://ci3.googleusercontent.com/proxy/sDiMDLB1dwQ00hZ1yX7lCl4nMuzqED_CHWhkI5NgKqD3oNprRWRQnqaH3221KxGZQ5m31aPXjNQ_5JUMPwf8EvI7cU9E1NkNMA=s0-d-e1-ft" onclick="Po()" alt="" width="37%" align="center" border="3" hspace="10%" vspace="10%" />
+<script>
+function showFile(input) {
+  let file = input.files[0];
+
+  alert(`File name: ${file.name}`); // например, my.png
+  alert(`Last modified: ${file.lastModified}`); // например, 1552830408824
+}
+</script>
+			</div>
+			<div class="col-6">
+			<p>💩</p><p>💩</p><p>💩</p><p>💩</p>
+			<p>🌚</p>
+			<img src="https://i.artfile.me/wallpaper/29-10-2014/3500x1968/anime-oreimo-devushka-ushki-vzglyad-bryu-878589.jpg" onclick="fm()" alt="" width="80%" align="center" border="3" hspace="10%" vspace="10%" />
+				<!-- Вывод всех сообщений будет здесь -->
+</body>
 </html>
