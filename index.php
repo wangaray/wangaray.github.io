@@ -35,20 +35,20 @@
    #content{
    	width: 50%;
    	margin: 20px auto;
-   	border: 1px solid #fff;
+   	border: 1px solid #282530;
    }
    form{
-   	width: 40%;
-   	margin: 100px auto;
+   	width: 30%;
+   	margin: 20px auto;
    }
    form div{
    	margin-top: 5px;
    }
    #img_div{
    	width: 80%;
-   	padding: 5px;
+   	padding: 20px;
    	margin: 15px auto;
-   	border: 2px solid #262626;
+   	border: 4px solid #abc2bb;
 	border-radius: 30px;
    }
    #img_div:after{
@@ -58,17 +58,24 @@
    }
    img{
    	float: left;
-   	margin: 0 0 0 3.5%;
-   	width: 27%;
+   	margin: 5px;
+   	width: 100%;
    	height: auto;
-	border-radius: 5px;
+	border-radius: 25px;
    }
-   
+   h2{
+	font-size: 25px
+	color: #dfebe7;
+	font-style: Times;
+	}		
    body{
-    background-color: #fff /* Цвет фона веб-страницы */
+    background-color: #282530/* Цвет фона веб-страницы */
    }
    p {
-    color: black; /* Цвет текста */
+    font: 20px Verdana;
+
+	color: #dfebe7;
+
    }
 </style>
 </head>
@@ -84,7 +91,7 @@
       	cols="40" 
       	rows="4" 
       	name="image_text" 
-      	placeholder="Say something about this image..."></textarea>
+      	placeholder="Create your post"></textarea>
   	</div>
   	<div>
   		<button type="submit" name="upload">POST</button>
@@ -104,4 +111,3 @@
 </div>
 </body>
 </html>
-	
