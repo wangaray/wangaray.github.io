@@ -1,6 +1,6 @@
 <?php
   // Create database connection
-  $db = mysqli_connect("localhost", "root", "root", "image_upload");
+  $db = mysqli_connect("durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "nknzycgijdr0z2ab", "i4ia5z9al7xklchy", "pxhikunxbwhckhm9");
 
   // Initialize message variable
   $msg = "";
