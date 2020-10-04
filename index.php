@@ -35,7 +35,7 @@
    #content{
    	width: 50%;
    	margin: 20px auto;
-   	border: 1px solid #282530;
+   	border: 1px solid #fff;
    }
    form{
    	width: 30%;
@@ -48,7 +48,7 @@
    	width: 80%;
    	padding: 20px;
    	margin: 15px auto;
-   	border: 4px solid #abc2bb;
+   	border: 4px solid #333;
 	border-radius: 30px;
    }
    #img_div:after{
@@ -69,12 +69,12 @@
 	font-style: Times;
 	}		
    body{
-    background-color: #282530/* Цвет фона веб-страницы */
+    background-color: #fff/* Цвет фона веб-страницы */
    }
    p {
     font: 20px Verdana;
 
-	color: #dfebe7;
+	color: #2e2e2e;
 
    }
 </style>
