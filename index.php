@@ -72,18 +72,43 @@
     background-color: #fff/* Цвет фона веб-страницы */
    }
    p {
-    font: 20px Verdana;
+    font: 30px Verdana;
 
 	color: #2e2e2e;
 
    }
+    button.new {
+	background-color: #000;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    padding: 24px 80px;
+    color: #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 0px solid #666;
+	border-radius: 12px;
+    color: white;
+   }
+   input.but {
+	background-color: #000;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    padding: 16px 30px;
+    color: #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 0px solid #666;
+	border-radius: 12px;
+    color: white;
+   }
+}
 </style>
 </head>
 <body>
 <form method="POST" action="index.php" enctype="multipart/form-data">
-  	<input type="hidden" name="size" value="1000000">
+  	<input class="cloq" type="hidden" name="size" value="1000000">
   	<div>
-  	  <input type="file" name="image">
+  	  <input class="but" type="file" name="image">
   	</div>
   	<div>
       <textarea 
@@ -94,7 +119,7 @@
       	placeholder="Create your post"></textarea>
   	</div>
   	<div>
-  		<button type="submit" name="upload">POST</button>
+  		<button   class="new "type="submit" name="upload" color="primary">POST</button>
   	</div>
 	<form method="POST" action="index.php" enctype="multipart/form-data">
   </form>
