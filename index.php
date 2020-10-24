@@ -1,7 +1,7 @@
 
 <?php
   // Create database connection
-  $db = mysqli_connect("durvbryvdw2sjcm5.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "nknzycgijdr0z2ab", "i4ia5z9al7xklchy", "pxhikunxbwhckhm9");
+  $db = mysqli_connect("localhost", "root", "root", "image_upload");
 
   // Initialize message variable
   $msg = "";
@@ -12,11 +12,13 @@
   	$image = $_FILES['image']['name'];
   	// Get text
   	$image_text = mysqli_real_escape_string($db, $_POST['image_text']);
+	
+	$text2 = mysqli_real_escape_string($db, $_POST['text2']);
 
   	// image file directory
   	$target = "images/".basename($image);
 
-  	$sql = "INSERT INTO images (image, image_text) VALUES ('$image', '$image_text')";
+  	$sql = "INSERT INTO images (image, image_text, text2) VALUES ('$image', '$image_text', '$text2')";
   	// execute query
   	mysqli_query($db, $sql);
 
@@ -44,21 +46,11 @@
 <style type="text/css">
 button.learn-more {
 @import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
-* {
-  box-sizing: border-box; }
-  *::before, *::after {
-    box-sizing: border-box; }
 
-body {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  min-height: 100vh;
-  background: #fff; }
+   
+    box-sizing: border-box; }
+}
+
 
 button {
   position: relative;
@@ -108,13 +100,14 @@ button {
         transform: translate3d(0, 0, -1em); }
 }
 
+
    #content{
    	width: 50%;
    	margin: 20px auto;
    	border: 1px solid #fff;
    }
    form{
-   	width: 30%;
+   	width: 20%;
    	margin: 20px auto;
    }
    form div{
@@ -126,6 +119,8 @@ button {
    	margin: 40px auto;
    	border: 4px solid #333;
 	border-radius: 30px;
+	background-position: center;
+	background-size: contain;
    }
    #img_div:after{
    	content: "";
@@ -133,16 +128,17 @@ button {
    	clear: both;
    }
    img{
-   	width: 96%;
-height:150px;
-min-height:450px;
-max-height:200px;
+   	width: 50%;
+	margin: 2px auto;
+height:200px;
+min-height:600px;
+max-height:750px;
 background-size: contain;
 background-position: center;
-border-radius: 20px;
+border-radius: inherit;
    }
    h2{
-	font-size: 25px
+	font-size: 20px
 	color: #dfebe7;
 	font-style: Times;
 	}		
@@ -150,7 +146,7 @@ border-radius: 20px;
     background-color: #fff/* Цвет фона веб-страницы */
    }
    p {
-    font: 28px Verdana;
+    font: 26px sans-serif;
 
 	color: #2e2e2e;
 
@@ -245,6 +241,14 @@ main {
       	name="image_text" 
       	placeholder="Create your post"></textarea>
   	</div>
+	<div>
+      <textarea 
+      	id="text2" 
+      	cols="20" 
+      	rows="2" 
+      	name="text2" 
+      	placeholder="Number people"></textarea>
+  	</div>
   	<div>
   		<button   class="new "type="submit" name="upload" color="primary">POST</button>
 		<button class="learn-more">Learn More</button>
@@ -258,6 +262,7 @@ main {
       echo "<div id='img_div'>";
       	echo "<img src='images/".$row['image']."' >";
       	echo "<p>".$row['image_text']."</p>";
+		echo "<p>".$row['text2']."</p>";
       echo "</div>";
     }
   ?>
