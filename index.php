@@ -108,7 +108,7 @@ button {
    	border: 1px solid #fff;
    }
    form{
-   	width: 20%;
+   	width: 50%;
    	margin: 20px auto;
    }
    form div{
