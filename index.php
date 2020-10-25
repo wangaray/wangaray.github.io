@@ -45,6 +45,9 @@
   </div>
 </main>
 <style type="text/css">
+media screen and (max-width: 1280px) { div.contentblock {width: 1200px;} } 
+media screen and (max-width: 1140px) { div.contentblock {width: 1024px;} } 
+media screen and (max-width: 992px) { div. contentblock {width: 970px;} }
 button.learn-more {
 @import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
 
