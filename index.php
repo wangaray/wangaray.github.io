@@ -34,6 +34,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<iframe src="https://streamtape.com/e/xPY4qzQMZmfqdd/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
 <title>Image Upload</title>
 <main>
   <div class="emojis">
@@ -271,6 +272,5 @@ main {
     }
   ?>
 </div>
-	<iframe src="https://streamtape.com/e/xPY4qzQMZmfqdd/" width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
 </body>
 </html>
